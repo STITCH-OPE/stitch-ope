@@ -1,0 +1,56 @@
+{
+    "env_name": "halfcheetah-medium-v2",
+    "guidance_hyperparams": {
+        "action_scale": 0.2,
+        "use_adaptive": false,
+        "use_neg_grad": true,
+        "neg_grad_scale": 0.1,
+        "normalize_grad": true,
+        "k_guide": 1,
+        "use_action_grad_only": true,
+        "clamp" : false,
+        "l_inf" : 1,
+        "ratio" : 0.25
+    },
+    "target_policy_paths": [
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_0.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_1.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_2.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_3.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_4.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_5.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_6.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_7.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_8.pt",
+        "policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_9.pt"
+    ],
+    "baseline_configs": {
+
+        "Diffuser": {
+            "class": "Diffuser",
+            "params": {
+                "T": 4,
+                "D": 256,
+                "num_samples": 50,
+                "T_gen": 1024,
+                "action_dim": 3,
+                "state_dim": 11,
+                "model_path": "policy/cheetah.pth",
+                "guided": true,
+                "tanh_action": false,
+                "scale": 0,
+                "dim_mults" : [1,4,8],
+                "attention" : true
+            }
+        }
+    },
+    "experiment_params": {
+        "horizon": 768,
+        "rollouts": 50,
+        "gamma": 0.99,
+        "trials": 5,
+        "save_path": "results/cheetah",
+        "top_k": 2,
+        "oracle_rollouts": 50
+    }
+}

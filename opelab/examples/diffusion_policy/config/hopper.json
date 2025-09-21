@@ -1,0 +1,53 @@
+{
+    "env_name": "hopper-medium-v2",
+    "guidance_hyperparams": {
+        "action_scale": 0.05,
+        "use_adaptive": false,
+        "use_neg_grad": true,
+        "neg_grad_scale": 0.1,
+        "normalize_grad": true,
+        "k_guide": 1,
+        "use_action_grad_only": true,
+        "clamp" : false,
+        "l_inf" : 1,
+        "ratio" : 0.25
+    },
+    "target_policy_paths": [
+        "policy/hopperDope/1.pt",
+        "policy/hopperDope/2.pt",
+        "policy/hopperDope/3.pt",
+        "policy/hopperDope/4.pt",
+        "policy/hopperDope/5.pt",
+        "policy/hopperDope/6.pt",
+        "policy/hopperDope/7.pt",
+        "policy/hopperDope/8.pt",
+        "policy/hopperDope/10.pt"
+    ],
+    "baseline_configs": {
+        "Diffuser": {
+            "class": "Diffuser",
+            "params": {
+                "T": 8,
+                "D": 256,
+                "num_samples": 50,
+                "T_gen": 768,
+                "action_dim": 3,
+                "state_dim": 11,
+                "model_path": "policy/hopper.pth",
+                "guided": true,
+                "tanh_action": false,
+                "scale": 0,
+                "predict_epsilon": true
+            }
+        }
+    },
+    "experiment_params": {
+        "horizon": 768,
+        "rollouts": 50,
+        "gamma": 0.99,
+        "trials": 5,
+        "save_path": "results/z25",
+        "top_k": 2,
+        "oracle_rollouts": 50
+    }
+}

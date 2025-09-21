@@ -1,0 +1,57 @@
+{
+    "env_name": "Pendulum-v1",
+    "behavior_policy_path": "opelab/examples/gym/policy/pendulum/Pi_3.pkl",
+    "dataset_path":"opelab/examples/gym/dataset/pdataset/",
+    "guidance_hyperparams": {
+        "action_scale": 0.1,
+        "state_scale": 0.0,
+        "use_adaptive": false,
+        "use_neg_grad": false,
+        "neg_grad_scale": 0.1,
+        "normalize_grad": true,
+        "k_guide": 1,
+        "use_action_grad_only": true,
+        "clamp" : false,
+        "l_inf" : 1,
+        "ratio" : 1.0
+    },
+    "target_policy_paths": [
+        "opelab/examples/gym/policy/pendulum/Pi_1.pkl",
+        "opelab/examples/gym/policy/pendulum/Pi_2.pkl",
+        "opelab/examples/gym/policy/pendulum/Pi_3.pkl",
+        "opelab/examples/gym/policy/pendulum/Pi_4.pkl",
+        "opelab/examples/gym/policy/pendulum/Pi_5.pkl"
+    ],
+    "baseline_configs": {
+        "Naive": {
+            "class": "OnPolicy",
+            "params": {}
+        },
+        "Diffuser": {
+            "class": "Diffuser",
+            "params": {
+                "T": 2,
+                "D": 256,
+                "num_samples": 100,
+                "T_gen": 200,
+                "action_dim": 1,
+                "state_dim": 3,
+                "model_path": "opelab/examples/gym/models/pendulum.pth",
+                "guided": true,
+                "tanh_action": false,
+                "scale": 0,
+                "predict_epsilon": true,
+                "dim_mults": [1]
+            }
+        }
+    },
+    "experiment_params": {
+        "horizon": 200,
+        "rollouts": 50,
+        "gamma": 0.99,
+        "trials": 5,
+        "save_path": "results/pendulum/abl/2",
+        "top_k": 2,
+        "oracle_rollouts": 100
+    }
+}

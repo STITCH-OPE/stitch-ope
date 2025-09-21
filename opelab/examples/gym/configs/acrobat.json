@@ -1,0 +1,58 @@
+{
+    "env_name": "acrobat",
+    "behavior_policy_path": "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t25k.pkl",
+    "dataset_path":"opelab/examples/gym/dataset/IAcrobat/",
+    "guidance_hyperparams": {
+        "action_scale": 0.1,
+        "state_scale": 0.0,
+        "use_adaptive": false,
+        "use_neg_grad": true,
+        "neg_grad_scale": 0.1,
+        "normalize_grad": true,
+        "k_guide": 1,
+        "use_action_grad_only": true,
+        "clamp" : false,
+        "l_inf" : 1,
+        "ratio" : 1.0
+    },
+    "target_policy_paths": [
+        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t10k.pkl",
+        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t15k.pkl",
+        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t20k.pkl",
+        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t25k.pkl",
+        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t30k.pkl",
+        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t35k.pkl"
+
+    ],
+    "baseline_configs": {
+        "Naive": {
+            "class": "OnPolicy",
+            "params": {}
+        },
+        "Diffuser": {
+            "class": "Diffuser",
+            "params": {
+                "T": 16,
+                "D": 256,
+                "num_samples": 50,
+                "T_gen": 256,
+                "action_dim": 1,
+                "state_dim": 3,
+                "model_path": "opelab/examples/gym/models/acrobat.pth",
+                "guided": true,
+                "tanh_action": false,
+                "scale": 0,
+                "predict_epsilon": true
+            }
+        }
+    },
+    "experiment_params": {
+        "horizon": 256,
+        "rollouts": 50,
+        "gamma": 0.99,
+        "trials": 5,
+        "save_path": "results/acrobat",
+        "top_k": 2,
+        "oracle_rollouts": 200
+    }
+}

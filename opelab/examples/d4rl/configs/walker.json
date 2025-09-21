@@ -1,0 +1,57 @@
+{
+    "env_name": "walker2d-medium-v2",
+    "guidance_hyperparams": {
+        "action_scale":  0.5,
+        "use_adaptive": false,
+        "use_neg_grad": true,
+        "neg_grad_scale": 0.1,
+        "normalize_grad": true,
+        "k_guide": 1,
+        "use_action_grad_only": true,
+        "clamp" : true,
+        "l_inf" : 1,
+        "ratio" : 0.5
+    },
+    "target_policy_paths": [
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_0.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_1.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_2.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_3.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_4.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_5.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_6.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_7.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_8.pkl",
+        "opelab/examples/d4rl/policy/walker/deep-ope_d4rl_walker_walker_online_9.pkl"
+    ],
+    "baseline_configs": {
+        "Naive": {
+            "class": "OnPolicy",
+            "params": {}
+        },
+        "Diffuser": {
+            "class": "Diffuser",
+            "params": {
+                "T": 8,
+                "D": 256,
+                "num_samples": 50,
+                "T_gen": 768,
+                "action_dim": 6,
+                "state_dim": 17,
+                "model_path": "opelab/examples/d4rl/models/walker.pth",
+                "guided": true,
+                "tanh_action": false,
+                "scale": 0
+            }
+        }
+    },
+    "experiment_params": {
+        "horizon": 768,
+        "rollouts": 50,
+        "gamma": 0.99,
+        "trials": 1,
+        "save_path": "results/walker/",
+        "top_k": 2,
+        "oracle_rollouts": 100
+    }
+}
