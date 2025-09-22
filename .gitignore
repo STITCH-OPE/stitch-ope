@@ -176,8 +176,3 @@ cython_debug/
 #.txt
 *.txt
 
-#base coes:
-opelab/examples/helpers.py
-opelab/core/data.py
-opelab/core/agent.py
-

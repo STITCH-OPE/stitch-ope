@@ -1,5 +1,14 @@
 # STITCH-OPE
 
+<p align="center">
+    <a href= "https://arxiv.org/abs/2505.20781">
+        <img src="https://img.shields.io/badge/arXiv-2505.20781-b31b1b" /></a>
+</p>
+
+<p align="center">
+    <img src="media/trailer.gif" alt="animated" width="75%"/>
+</p>
+
 This repository contains the code for the paper [STITCH-OPE: Trajectory Stitching with Guided Diffusion for Off-Policy Evaluation](https://stitch-ope.github.io/).
 
 ## Setting up the environment
