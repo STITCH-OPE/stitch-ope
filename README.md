@@ -15,20 +15,20 @@ This repository contains the code for the paper [STITCH-OPE: Trajectory Stitchin
 There are two ways to set up the environment, using our dockerfile with the provided Makefile (This path is much easier), or setting up a conda environment.
 ### 1- Docker (Recommended)
 ```
-make build      # build the GPU image
-make sanity     # quick check: imports mujoco_py/gym/d4rl + steps Hopper to ensure mujoco works
+sudo make build      # build the GPU image
+sudo make sanity     # quick check: imports mujoco_py/gym/d4rl + steps Hopper to ensure mujoco works
 ```
 to automatically download the assets (policies, diffusion models, datasets, etc) run: 
 ```
 # Pick ONE of these; assets are saved into your repo on the host:
 # since the docker mounts your repo at /workspace, you can also download it and put inside the host (In case google Drive link is not accessible)
-make download ZIP_LOCAL=assets.zip
-make download ZIP_URL="https://drive.google.com/file/d/<FILE_ID>/view?usp=sharing"
+sudo make download ZIP_LOCAL=assets.zip
+sudo make download ZIP_URL="https://drive.google.com/file/d/<FILE_ID>/view?usp=sharing"
 
 ```
 After these you have full access to the running code and a shell:
 ```
-make shell
+sudo make shell
 ```
 Please read the other sections regarding how to run the experiments and train models, you are good to go!
 
