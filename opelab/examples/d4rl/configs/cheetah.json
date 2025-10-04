@@ -19,7 +19,7 @@
         "trials": 1,
         "save_path": "results/cheetah/",
         "top_k": 2,
-        "oracle_rollouts": 100
+        "oracle_rollouts": 10
     },
     "target_policy_paths": [
         "opelab/examples/d4rl/policy/cheetah/deep-ope_d4rl_halfcheetah_halfcheetah_online_0.pkl",
@@ -53,7 +53,6 @@
                 "scale": 0,
                 "dim_mults" : [1,4,8],
                 "attention" : false,
-                "clip_denoised": true,
 		        "predict_epsilon":false
             }
         }

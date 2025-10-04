@@ -30,7 +30,7 @@
         "Diffuser": {
             "class": "Diffuser",
             "params": {
-                "T": 2,
+                "T": 16,
                 "D": 256,
                 "num_samples": 100,
                 "T_gen": 200,
@@ -41,7 +41,7 @@
                 "tanh_action": false,
                 "scale": 0,
                 "predict_epsilon": true,
-                "dim_mults": [1]
+                "dim_mults": [1, 2, 4, 8]
             }
         }
     },

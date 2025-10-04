@@ -1,9 +1,9 @@
 {
     "env_name": "acrobat",
-    "behavior_policy_path": "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t25k.pkl",
+    "behavior_policy_path": "opelab/examples/gym/policy/acrobat/TD3_CAcrobat_0_t25k.pkl",
     "dataset_path":"opelab/examples/gym/dataset/IAcrobat/",
     "guidance_hyperparams": {
-        "action_scale": 0.1,
+        "action_scale": 0.5,
         "state_scale": 0.0,
         "use_adaptive": false,
         "use_neg_grad": true,
@@ -16,12 +16,12 @@
         "ratio" : 1.0
     },
     "target_policy_paths": [
-        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t10k.pkl",
-        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t15k.pkl",
-        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t20k.pkl",
-        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t25k.pkl",
-        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t30k.pkl",
-        "opelab/examples/gym/policy/CAcrobat/TD3_CAcrobat_0_t35k.pkl"
+        "opelab/examples/gym/policy/acrobat/TD3_CAcrobat_0_t10k.pkl",
+        "opelab/examples/gym/policy/acrobat/TD3_CAcrobat_0_t15k.pkl",
+        "opelab/examples/gym/policy/acrobat/TD3_CAcrobat_0_t20k.pkl",
+        "opelab/examples/gym/policy/acrobat/TD3_CAcrobat_0_t25k.pkl",
+        "opelab/examples/gym/policy/acrobat/TD3_CAcrobat_0_t30k.pkl",
+        "opelab/examples/gym/policy/acrobat/TD3_CAcrobat_0_t35k.pkl"
 
     ],
     "baseline_configs": {
@@ -32,8 +32,8 @@
         "Diffuser": {
             "class": "Diffuser",
             "params": {
-                "T": 16,
-                "D": 256,
+                "T": 32,
+                "D": 128,
                 "num_samples": 50,
                 "T_gen": 256,
                 "action_dim": 1,

@@ -10,6 +10,7 @@ import sys
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(current_dir, '../../..'))
 
+from opelab.core.baselines.simple import OnPolicy
 from opelab.core.baselines.diffuser import Diffuser
 from opelab.core.task import ContinuousAcrobotEnv
 from opelab.core.policy import D4RLPolicy, D4RLSACPolicy, TD3Policy
